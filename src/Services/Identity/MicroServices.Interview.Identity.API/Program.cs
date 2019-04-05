@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using IdentityServer4.EntityFramework.DbContexts;
+using MicroServices.Interview.Identity.API.Data;
+using MicroServices.Interview.Identity.API.Extensions;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 namespace MicroServices.Interview.Identity.API
 {
@@ -14,11 +14,30 @@ namespace MicroServices.Interview.Identity.API
     {
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Build().Run();
+            BuildWebHost(args)
+                .MigrateDatabase<PersistedGrantDbContext>((_, __) => { })
+                .MigrateDatabase<ApplicationDbContext>((context, services) =>
+                {
+                    var env = services.GetService<IHostingEnvironment>();
+                    var logger = services.GetService<ILogger<ApplicationDbContextSeed>>();
+
+                    new ApplicationDbContextSeed()
+                        .SeedAsync(context, env, logger)
+                        .Wait();
+                })
+                .MigrateDatabase<ConfigurationDbContext>((context, services) =>
+                {
+                    var configuration = services.GetService<IConfiguration>();
+
+                    new ConfigurationDbContextSeed()
+                        .SeedAsync(context, configuration)
+                        .Wait();
+                }).Run();
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+                .UseStartup<Startup>()
+                .Build();
     }
 }

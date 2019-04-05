@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateways", "ApiGateways"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroServices.Interview.OcelotApiGw", "src\ApiGateways\MicroServices.Interview.OcelotApiGw\MicroServices.Interview.OcelotApiGw.csproj", "{DCD344F5-7891-4089-85F4-C185EA5D2974}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{0EED9E06-9C82-4128-BE46-8638DEF752FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{DCD344F5-7891-4089-85F4-C185EA5D2974}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCD344F5-7891-4089-85F4-C185EA5D2974}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCD344F5-7891-4089-85F4-C185EA5D2974}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EED9E06-9C82-4128-BE46-8638DEF752FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EED9E06-9C82-4128-BE46-8638DEF752FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EED9E06-9C82-4128-BE46-8638DEF752FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EED9E06-9C82-4128-BE46-8638DEF752FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
