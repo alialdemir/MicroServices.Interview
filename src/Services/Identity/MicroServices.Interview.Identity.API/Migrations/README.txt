@@ -1,0 +1,1 @@
+﻿Bu kısım identity serverin standart migration dosyalarını içeriyor o yüzden bende yapılmışı vardı onu kullandım :)

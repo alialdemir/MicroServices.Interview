@@ -5,10 +5,10 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:2.1-stretch AS build
 WORKDIR /src
-COPY ["MicroServices.Interview.Identity.API/MicroServices.Interview.Identity.API.csproj", "MicroServices.Interview.Identity.API/"]
-RUN dotnet restore "MicroServices.Interview.Identity.API/MicroServices.Interview.Identity.API.csproj"
+COPY ["src/Services/Identity/MicroServices.Interview.Identity.API/MicroServices.Interview.Identity.API.csproj", "src/Services/Identity/MicroServices.Interview.Identity.API/"]
+RUN dotnet restore "src/Services/Identity/MicroServices.Interview.Identity.API/MicroServices.Interview.Identity.API.csproj"
 COPY . .
-WORKDIR "/src/MicroServices.Interview.Identity.API"
+WORKDIR "/src/src/Services/Identity/MicroServices.Interview.Identity.API"
 RUN dotnet build "MicroServices.Interview.Identity.API.csproj" -c Release -o /app
 
 FROM build AS publish
