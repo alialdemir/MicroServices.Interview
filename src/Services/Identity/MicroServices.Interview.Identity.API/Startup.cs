@@ -62,13 +62,6 @@ namespace MicroServices.Interview.Identity.API
                 app.UseDeveloperExceptionPage();
             }
 
-            var pathBase = Configuration["PATH_BASE"];
-            if (!string.IsNullOrEmpty(pathBase))
-            {
-                loggerFactory.CreateLogger("init").LogDebug($"Using PATH BASE '{pathBase}'");
-                app.UsePathBase(pathBase);
-            }
-
             IdentityServerConfigure(app, env);// IdentityServer
 
             app.UseHttpsRedirection();

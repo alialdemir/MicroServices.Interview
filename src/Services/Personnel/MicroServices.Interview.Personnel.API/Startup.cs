@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace MicroServices.Interview.Personnel.API
 {
-    public class Startup
+    public partial class Startup
     {
         public Startup(IConfiguration configuration)
         {
@@ -19,6 +19,8 @@ namespace MicroServices.Interview.Personnel.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            AddAuth(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,6 +36,9 @@ namespace MicroServices.Interview.Personnel.API
             }
 
             app.UseHttpsRedirection();
+
+            AddAuth(app);
+
             app.UseMvc();
         }
     }

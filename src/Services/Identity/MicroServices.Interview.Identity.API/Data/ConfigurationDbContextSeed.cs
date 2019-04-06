@@ -20,14 +20,9 @@ namespace MicroServices.Interview.Identity.API.Data
         /// <returns></returns>
         public async Task SeedAsync(ConfigurationDbContext context, IConfiguration configuration)
         {
-            var clientUrls = new Dictionary<string, string>
-            {
-                { "Spa", configuration.GetValue<string>("AngularClient") }
-            };
-
             if (!context.Clients.Any())
             {
-                foreach (var client in Config.GetClients(clientUrls))
+                foreach (var client in Config.GetClients())
                 {
                     context.Clients.Add(client.ToEntity());
                 }
