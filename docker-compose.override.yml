@@ -17,3 +17,15 @@ services:
     volumes:
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+
+  microservices.interview.personnel.api:
+    environment:
+     - ASPNETCORE_ENVIRONMENT=Development
+     - ConnectionString=${CONTESTPARK_AZURE_IDENTITY_DB:-Server=sql.data;Database=PersonnelDB;User Id=sa;Password=Pass@word}
+     - identityUrl=http://microservices.interview.identity.api
+     - Audience=personnel
+    ports:
+      - "5102:80"
+    volumes:
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro

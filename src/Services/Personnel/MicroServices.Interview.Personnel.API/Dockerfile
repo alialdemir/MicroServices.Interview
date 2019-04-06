@@ -5,10 +5,10 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:2.1-stretch AS build
 WORKDIR /src
-COPY ["MicroServices.Interview.Personnel.API/MicroServices.Interview.Personnel.API.csproj", "MicroServices.Interview.Personnel.API/"]
-RUN dotnet restore "MicroServices.Interview.Personnel.API/MicroServices.Interview.Personnel.API.csproj"
+COPY ["src/Services/Personnel/MicroServices.Interview.Personnel.API/MicroServices.Interview.Personnel.API.csproj", "src/Services/Personnel/MicroServices.Interview.Personnel.API/"]
+RUN dotnet restore "src/Services/Personnel/MicroServices.Interview.Personnel.API/MicroServices.Interview.Personnel.API.csproj"
 COPY . .
-WORKDIR "/src/MicroServices.Interview.Personnel.API"
+WORKDIR "/src/src/Services/Personnel/MicroServices.Interview.Personnel.API"
 RUN dotnet build "MicroServices.Interview.Personnel.API.csproj" -c Release -o /app
 
 FROM build AS publish

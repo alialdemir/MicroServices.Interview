@@ -11,3 +11,12 @@ services:
       dockerfile: src/Services/Identity/MicroServices.Interview.Identity.API/Dockerfile
     depends_on:
       - sql.data
+      
+  microservices.interview.personnel.api:
+    image: personnel.api:${TAG:-latest}
+    build:
+      context: .
+      dockerfile: src/Services/Personnel/MicroServices.Interview.Personnel.API/Dockerfile
+    depends_on:
+      - microservices.interview.identity.api
+      - sql.data

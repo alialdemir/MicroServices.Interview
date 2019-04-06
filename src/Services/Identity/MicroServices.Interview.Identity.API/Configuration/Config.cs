@@ -42,7 +42,7 @@ namespace MicroServices.Interview.Identity.API.Configuration
         /// facebook, twitter api kullandıysanız oradaki scopes mantığını uygular
         /// </summary>
         /// <returns>List of clients</returns>
-        public static IEnumerable<Client> GetClients(Dictionary<string, string> clientsUrl)
+        public static IEnumerable<Client> GetClients()
         {
             return new List<Client>
             {  new Client
