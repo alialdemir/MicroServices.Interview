@@ -1,13 +1,13 @@
 # Senaryo
 Geliştirilecek uygulamada basit CRUD işlemleri yapılacak.
 
-Veri tabanından yaratılan tabloda Personel,User ve Yetkilendirme tabloları olacak.
+Veri tabanından yaratılan tabloda Personel, User ve Yetkilendirme tabloları olacak.
 
 1. Login Servisi
 
 -.NetCore ile yazılacak.
 
--Gelen kullanıcı bilgilerinin güvenirliğini kontrol edecek ve İdendity Server ile uygulamalar arasında konuşulmasını sağlayacak.
+-Gelen kullanıcı bilgilerinin güvenirliğini kontrol edecek ve idendity Server ile uygulamalar arasında konuşulmasını sağlayacak.
 
 - Rol ve kullanıcı bazlı yetkilendirmeler yapılabilecek.
 
